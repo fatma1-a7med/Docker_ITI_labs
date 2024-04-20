@@ -61,11 +61,12 @@ Docker removes the container along with all its associated files and changes, in
 ```
 #### 6. Remove All Stopped Containers
 ```bash
-docker container prune
+
+docker rm -f $(docker ps -aq)
 ```
 #### 7. Bonus: Remove All Containers in One Command
 ```bash
-docker rm -f $(docker ps -aq)
+docker container prune
 ```
 
 ---
@@ -76,15 +77,35 @@ Create a custom Docker image using Nginx and a local HTML file.
 ### Steps
 #### 1. Create a Local HTML File
 ```bash
+vi index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Name</title>
+</head>
+<body>
+  <h1>Fatma Alzahraa Ahmed Fathy</h1>
+</body>
+</html>
 ```
 #### 2. Write Dockerfile and Copy the HTML file to the Docker Image
 ```bash
+vi  Dockerfile :
+           FROM nginx:alpine
+           COPY index.html /usr/share/nginx/html/index.html
+           EXPOSE 80
 ```
 #### 3. Run Container with New Image
 ```bash
+docker build -t nginx-custom .
 ```
 
 #### 4. Test the Container, open your browser and navigate to http://localhost:8088 to check if everything is okay
 ```bash
+docker run -d -p 8080:80 nginx-custom
+docker ps -a
+(add port 8080 and get link and will work )
 ```
 
