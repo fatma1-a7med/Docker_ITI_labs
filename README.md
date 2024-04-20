@@ -6,22 +6,28 @@ Learn how to run a container using the hello-world image and manage containers a
 
 ### Steps
 #### 1. Run a Container with hello-world Image
-       docker run hello-world
+       
 ```bash
+docker run hello-world
 docker pull hello-world
 
 ```
 #### 2. Check Container Status and Explain
 ```bash
+docker ps -a
+The container status is "Exited (0)" ->  The reason for this status is that the hello-world container is a very simple container that is designed to just print a message ("Hello from Docker!") to confirm that your Docker installation is working correctly. After printing this message, the container completes its task and exits 
 ```
 #### 3. Start the Stopped Container
 ```bash
+docker start hello-world
 ```
 #### 4. Remove the Container
 ```bash
+docker rm trusting_northcutt
 ```
 #### 5. Remove the Image
 ```bash
+docker rmi hello-world
 ```
 ---
 
