@@ -109,3 +109,12 @@ docker ps -a
 (add port 8080 and get link and will work )
 ```
 
+
+
+
+
+# ITI - Docker Lab 2 🐋
+
+## Task 1: Run a container using nginx image, and mount a directory from your host into the Docker container. (bind mount)
+
+
